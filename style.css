@@ -90,10 +90,20 @@ div.hero {
 #filter {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100svi;
   background-color: var(--aem-color-1);
   margin-bottom: var(--aem-margin-xl);
 }
+
+select {
+  height: 30px;
+  width: 220px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px var(--aem-shadow-1);
+  text-align: center;
+}
+
 .closed_filter {
   height: 60px;
 }
@@ -102,6 +112,7 @@ div.hero {
 }
 .open_filter_button {
   position: absolute;
+  margin-top: 10px;
   border-radius: 100%;
   background-color: var(--aem-color-1);
   margin-top: var(--aem-margin-s);
@@ -122,7 +133,7 @@ div.hero {
   transform: rotate(180deg);
   border-radius: 100%;
   background-color: var(--aem-color-1);
-  margin-top: 140px;
+  margin-top: 160px;
   cursor: pointer;
 }
 

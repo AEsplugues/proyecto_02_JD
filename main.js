@@ -101,6 +101,29 @@ const arrayZapatillas = [
 
 const marcas = []
 
+let marca = ''
+
+const filtrar = () => {
+  const filtered = []
+  for (const zapatilla of arrayZapatillas) {
+    if (zapatilla.marca === marca) {
+      filtered.push(zapatilla)
+    }
+  }
+
+  printArrayZapatillas(filtered)
+}
+
+const fillMarcas = () => {
+  marcas.splice(0)
+  for (const zapatilla of arrayZapatillas) {
+    if (!marcas.includes(zapatilla.marca)) {
+      marcas.push(zapatilla.marca)
+    }
+  }
+}
+fillMarcas()
+
 const createSelectMarca = () => {
   const divFiltros = document.querySelector('#filter')
   const selectMarca = document.createElement('select')
@@ -108,54 +131,62 @@ const createSelectMarca = () => {
   for (const marca of marcas) {
     const option = document.createElement('option')
 
-    option.value = arrayZapatillas.marca
-    option.textContent = arrayZapatillas.marca
+    option.value = marca
+    option.textContent = marca
 
     selectMarca.appendChild(option)
   }
+
+  divFiltros.appendChild(selectMarca)
+
+  selectMarca.addEventListener('change', (event) => {
+    marca = event.target.value
+
+    filtrar()
+  })
 }
 
-const printArrayZapatillas = (zapatilla) => {
+const printArrayZapatillas = (zapatillas) => {
   const mainContainer = document.querySelector('.mainContainer')
+  mainContainer.innerHTML = '' // Limpiar el contenedor antes de agregar nuevas zapatillas
 
-  const divZapatilla = document.createElement('div')
-  divZapatilla.className = 'zapatilla'
+  for (const zapatilla of zapatillas) {
+    const divZapatilla = document.createElement('div')
+    divZapatilla.className = 'zapatilla'
 
-  const imgzapatilla = document.createElement('img')
-  const infoMarca = document.createElement('h3')
-  const divp = document.createElement('div')
-  const infoModelo = document.createElement('p')
-  const infoPrecio = document.createElement('p')
-  const divbutton = document.createElement('div')
-  const button = document.createElement('button')
+    const imgzapatilla = document.createElement('img')
+    const infoMarca = document.createElement('h3')
+    const divp = document.createElement('div')
+    const infoModelo = document.createElement('p')
+    const infoPrecio = document.createElement('p')
+    const divbutton = document.createElement('div')
+    const button = document.createElement('button')
 
-  imgzapatilla.src = zapatilla.foto
-  imgzapatilla.className = 'product_img'
-  infoMarca.textContent = zapatilla.marca
-  infoModelo.textContent = zapatilla.modelo
-  infoPrecio.textContent = zapatilla.precio + ' €'
+    imgzapatilla.src = zapatilla.foto
+    imgzapatilla.className = 'product_img'
+    infoMarca.textContent = zapatilla.marca
+    infoModelo.textContent = zapatilla.modelo
+    infoPrecio.textContent = zapatilla.precio + ' €'
 
-  button.textContent = 'Comprar'
-  button.className = 'button'
+    button.textContent = 'Comprar'
+    button.className = 'button'
 
-  divp.className = 'divp'
-  divbutton.className = 'divbutton'
+    divp.className = 'divp'
+    divbutton.className = 'divbutton'
 
-  divZapatilla.appendChild(imgzapatilla)
-  divZapatilla.appendChild(infoMarca)
-  divp.appendChild(infoModelo)
-  divp.appendChild(infoPrecio)
-  divZapatilla.appendChild(divp)
-  divZapatilla.appendChild(button)
-  divZapatilla.appendChild(divbutton)
-  divbutton.appendChild(button)
+    divZapatilla.appendChild(imgzapatilla)
+    divZapatilla.appendChild(infoMarca)
+    divp.appendChild(infoModelo)
+    divp.appendChild(infoPrecio)
+    divZapatilla.appendChild(divp)
+    divZapatilla.appendChild(button)
+    divZapatilla.appendChild(divbutton)
+    divbutton.appendChild(button)
 
-  mainContainer.appendChild(divZapatilla)
+    mainContainer.appendChild(divZapatilla)
+  }
 }
 
-for (const zapatilla of arrayZapatillas) {
-  printArrayZapatillas(zapatilla)
-}
+printArrayZapatillas(arrayZapatillas)
 
 createSelectMarca()
-/* FILTROS EJEMPLO PROYECTO DOM 1:24:00 */
