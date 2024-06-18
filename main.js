@@ -99,6 +99,8 @@ const arrayZapatillas = [
   }
 ]
 
+const borrarfiltro
+
 const marcas = []
 
 let marca = ''
