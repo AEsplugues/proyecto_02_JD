@@ -69,13 +69,13 @@ const arrayZapatillas = [
   },
   {
     foto: './assets/nike1-11.png',
-    marca: 'New Blance',
+    marca: 'New Balance',
     modelo: 'Forum Buckle',
     precio: 100
   },
   {
     foto: './assets/nike1-12.png',
-    marca: 'New Blance',
+    marca: 'New Balance',
     modelo: 'NB 480',
     precio: 150
   },
@@ -98,8 +98,6 @@ const arrayZapatillas = [
     precio: 140
   }
 ]
-
-const borrarfiltro
 
 const marcas = []
 
