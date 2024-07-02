@@ -100,18 +100,33 @@ const arrayZapatillas = [
 ]
 
 const marcas = []
+const precios = ['< 100', '100-150', '> 150']
 
 let marca = ''
+let precio = ''
 
 const filtrar = () => {
-  const filtered = []
-  for (const zapatilla of arrayZapatillas) {
-    if (zapatilla.marca === marca) {
-      filtered.push(zapatilla)
-    }
-  }
+  const filtered = arrayZapatillas.filter((zapatilla) => {
+    const matchMarca = !marca || zapatilla.marca === marca
+    const matchPrecio =
+      !precio ||
+      (precio === '< 100' && zapatilla.precio < 100) ||
+      (precio === '100 - 150' &&
+        zapatilla.precio >= 100 &&
+        zapatilla.precio <= 150) ||
+      (precio === '> 150' && zapatilla.precio > 150)
+    return matchMarca && matchPrecio
+  })
 
-  printArrayZapatillas(filtered)
+  if (filtered.length === 0) {
+    printArrayZapatillas(getRandomZapatillas(3))
+  } else {
+    printArrayZapatillas(filtered)
+  }
+}
+const getRandomZapatillas = (count) => {
+  const shuffled = arrayZapatillas.sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
 }
 
 const fillMarcas = () => {
@@ -127,6 +142,13 @@ fillMarcas()
 const createSelectMarca = () => {
   const divFiltros = document.querySelector('#filter')
   const selectMarca = document.createElement('select')
+  const selectPrecio = document.createElement('select')
+  const cleanSelect = document.createElement('button')
+
+  const defaultOption = document.createElement('option')
+  defaultOption.value = ''
+  defaultOption.textContent = 'Marca'
+  selectMarca.appendChild(defaultOption)
 
   for (const marca of marcas) {
     const option = document.createElement('option')
@@ -137,18 +159,54 @@ const createSelectMarca = () => {
     selectMarca.appendChild(option)
   }
 
+  const defaultOptionPrecio = document.createElement('option')
+  defaultOptionPrecio.value = ''
+  defaultOptionPrecio.textContent = 'Precio'
+  selectPrecio.appendChild(defaultOptionPrecio)
+
+  for (const rango of precios) {
+    const option = document.createElement('option')
+
+    option.value = rango
+    option.textContent = rango
+
+    selectPrecio.appendChild(option)
+  }
+
+  cleanSelect.textContent = 'Limpiar'
+  cleanSelect.className = 'button_filter'
+
   divFiltros.appendChild(selectMarca)
+  divFiltros.appendChild(selectPrecio)
+  divFiltros.appendChild(cleanSelect)
 
   selectMarca.addEventListener('change', (event) => {
     marca = event.target.value
 
     filtrar()
   })
+
+  selectPrecio.addEventListener('change', (event) => {
+    precio = event.target.value
+    filtrar()
+  })
+
+  cleanSelect.addEventListener('click', () => {
+    limpiarFiltros(selectMarca, selectPrecio)
+  })
+}
+
+const limpiarFiltros = (selectMarca, selectPrecio) => {
+  marca = ''
+  precio = ''
+  selectMarca.value = ''
+  selectPrecio.value = ''
+  printArrayZapatillas(arrayZapatillas)
 }
 
 const printArrayZapatillas = (zapatillas) => {
   const mainContainer = document.querySelector('.mainContainer')
-  mainContainer.innerHTML = '' // Limpiar el contenedor antes de agregar nuevas zapatillas
+  mainContainer.innerHTML = ''
 
   for (const zapatilla of zapatillas) {
     const divZapatilla = document.createElement('div')
@@ -186,6 +244,17 @@ const printArrayZapatillas = (zapatillas) => {
     mainContainer.appendChild(divZapatilla)
   }
 }
+
+const btnFilter = document.querySelector('#btn_filter')
+const filterContainer = document.querySelector('#filter')
+
+btnFilter.addEventListener('click', () => {
+  filterContainer.classList.toggle('opened_filter')
+  filterContainer.classList.toggle('closed_filter')
+
+  btnFilter.classList.toggle('open_filter_button')
+  btnFilter.classList.toggle('close_filter_button')
+})
 
 printArrayZapatillas(arrayZapatillas)
 
