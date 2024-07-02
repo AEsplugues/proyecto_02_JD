@@ -8,7 +8,7 @@ const arrayZapatillas = [
     precio: 120
   },
   {
-    foto: './assets/nike1-1.png',
+    foto: './assets/nike1_1.png',
     marca: 'New Balance',
     modelo: 'NB 9060',
     precio: 80
