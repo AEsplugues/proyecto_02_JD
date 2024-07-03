@@ -2,97 +2,97 @@ import './style.css'
 
 const arrayZapatillas = [
   {
-    foto: './assets/nike1.png',
+    foto: './public/assets/nike1_1.png',
     marca: 'Nike Original',
     modelo: 'Air Max 1',
     precio: 120
   },
   {
-    foto: './assets/nike1_1.png',
+    foto: './public/assets/nike1_1.png',
     marca: 'New Balance',
     modelo: 'NB 9060',
     precio: 80
   },
   {
-    foto: './assets/nike1-2.png',
+    foto: './public/assets/nike1-2.png',
     marca: 'Nike Original',
     modelo: 'Nike Revolution',
     precio: 90
   },
   {
-    foto: './assets/nike1-3.png',
+    foto: './public/assets/nike1-3.png',
     marca: 'Adidas Original',
     modelo: 'Forum Buckle',
     precio: 100
   },
   {
-    foto: './assets/nike1-4.png',
+    foto: './public/assets/nike1-4.png',
     marca: 'Adidas Original',
     modelo: 'Campus',
     precio: 120
   },
   {
-    foto: './assets/nike1-5.png',
+    foto: './public/assets/nike1-5.png',
     marca: 'New Balance',
     modelo: 'NB 327',
     precio: 120
   },
   {
-    foto: './assets/nike1-6.png',
+    foto: './public/assets/nike1-6.png',
     marca: 'Nike Original',
     modelo: 'Dunk Low',
     precio: 100
   },
   {
-    foto: './assets/nike1-7.png',
+    foto: './public/assets/nike1-7.png',
     marca: 'Adidas Original',
     modelo: 'Glazzelle',
     precio: 90
   },
   {
-    foto: './assets/nike1-8.png',
+    foto: './public/assets/nike1-8.png',
     marca: 'Nike Original',
     modelo: 'Air Max SC',
     precio: 150
   },
   {
-    foto: './assets/nike1-9.png',
+    foto: './public/assets/nike1-9.png',
     marca: 'Adidas Original',
     modelo: 'Handball Spezial',
     precio: 120
   },
   {
-    foto: './assets/nike1-10.png',
+    foto: './public/assets/nike1-10.png',
     marca: 'Nike Original',
     modelo: 'Air Force',
     precio: 130
   },
   {
-    foto: './assets/nike1-11.png',
+    foto: './public/assets/nike1-11.png',
     marca: 'New Balance',
     modelo: 'Forum Buckle',
     precio: 100
   },
   {
-    foto: './assets/nike1-12.png',
+    foto: './public/assets/nike1-12.png',
     marca: 'New Balance',
     modelo: 'NB 480',
     precio: 150
   },
   {
-    foto: './assets/nike1-13.png',
+    foto: './public/assets/nike1-13.png',
     marca: 'Nike Original',
     modelo: 'Full Force Low',
     precio: 70
   },
   {
-    foto: './assets/nike1-14.png',
+    foto: './public/assets/nike1-14.png',
     marca: 'Nike Original',
     modelo: 'Air Max SC',
     precio: 160
   },
   {
-    foto: './assets/nike1-15.png',
+    foto: './public/assets/nike1-15.png',
     marca: 'Adidas Original',
     modelo: 'Handball Spezial',
     precio: 140
